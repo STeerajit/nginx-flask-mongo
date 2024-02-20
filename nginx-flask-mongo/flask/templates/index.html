@@ -1,0 +1,32 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+
+    <form method="post">
+        <input type="text" name="first_name" placeholder="First Name">
+        <input type="text" name="last_name" placeholder="Last Name">
+        <input type="submit" name="action" value="add">
+    </form>
+
+    <ul>
+        {% for person in people %}
+        <li>
+            <form method="post">
+                <input type="hidden" name="id" value="{{ person._id }}">
+                <input type="text" name="first_name" value="{{ person.first_name }}">
+                <input type="text" name="last_name" value="{{ person.last_name }}">
+                <input type="submit" name="action" value="edit">
+                <input type="submit" name="action" value="delete">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
